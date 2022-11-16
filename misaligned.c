@@ -13,7 +13,7 @@ void evaluationColorMap(int pairIndex) {
     assert(pairIndex == correctPairNumIdx);
     assert(pairIndex <= totColors);
     assert(pairIndex != 0);
-    printf("%d == %d ?", pairIndex, correctPairNumIdx);
+    printf("\n%d == %d ? Tot colors %d\n", pairIndex, correctPairNumIdx, totColors);
     correctPairNumIdx++;
 }
 
@@ -34,7 +34,7 @@ int printColorMap() {
 
 int main() {
     int result = printColorMap();
-    assert(result == i * j);
+    assert(result == 25);
     printf("All is well (maybe!)\n");
     return 0;
 }
