@@ -10,8 +10,11 @@ const int totColors = numOfMajColors * numOfMinColors;
 
 void evaluationColorMap(int pairIndex) {
     static int correctPairNumIdx = 1;
-    assert(pairIndex == correctPairNumIdx++);
+    assert(pairIndex == correctPairNumIdx);
     assert(pairIndex <= totColors);
+    assert(pairIndex != 0);
+    printf("%d == %d ?", pairIndex, correctPairNumIdx);
+    correctPairNumIdx++;
 }
 
 
