@@ -11,7 +11,7 @@ const int totColors = numOfMajColors * numOfMinColors;
 void evaluationColorMap(int pairIndex) {
     static int correctPairNumIdx = 1;
     assert(pairIndex == correctPairNumIdx++);
-    assert(pairIndex <= totColors++);
+    assert(pairIndex <= totColors);
 }
 
 
