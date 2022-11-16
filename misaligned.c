@@ -1,9 +1,17 @@
 #include <stdio.h>
 #include <assert.h>
 
+
+const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
+const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
+const int numOfMajColors = sizeof(majorColor) / sizeof(majorColor[0]);
+const int numOfMinColors = sizeof(minorColor) / sizeof(minorColor[0]);
+const int totColors = numOfMajColors * numOfMinColors;
+
 void evaluationColorMap(int pairIndex) {
     static int correctPairNumIdx = 1;
     assert(pairIndex == correctPairNumIdx++);
+    assert(pairIndex <= totColors++);
 }
 
 
@@ -23,7 +31,7 @@ int printColorMap() {
 
 int main() {
     int result = printColorMap();
-    assert(result == 25);
+    assert(result == totColors);
     printf("All is well (maybe!)\n");
     return 0;
 }
