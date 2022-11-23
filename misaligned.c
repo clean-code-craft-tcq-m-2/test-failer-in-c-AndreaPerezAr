@@ -2,9 +2,6 @@
 #include <assert.h>
 #include <string.h>
 
-#define FIRSTBLOCK 12
-#define SECONDBLOCK 12
-
 const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
 const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
 const char PairNum[] = "Pair Number |";
