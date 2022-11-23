@@ -1,31 +1,32 @@
 #include <stdio.h>
 #include <assert.h>
+#include <string.h>
 
+#define FIRSTBLOCK 12
+#define SECONDBLOCK 12
 
 const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
 const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
-const int numOfMajColors = sizeof(majorColor) / sizeof(majorColor[0]);
-const int numOfMinColors = sizeof(minorColor) / sizeof(minorColor[0]);
-const int totColors = numOfMajColors * numOfMinColors;
-
-void evaluationColorMap(int pairIndex) {
-    static int correctPairNumIdx = 0;
-    assert(pairIndex == correctPairNumIdx);
-    assert(pairIndex <= totColors);
-    printf("%d == %d ? Tot colors %d\n", pairIndex, correctPairNumIdx, totColors);
-    correctPairNumIdx++;
-}
-
+const char PairNum[] = "Pair Number |";
+const char MajColor[] = "Major Color |";
+const char MinColor[] = "Minor Color";
+char strpairIndex[12];
+char strMajIndex[12];
 
 int printColorMap() {
-    const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
-    const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
     int i = 0, j = 0, pairIndex=0;
+    char strMajIndex[12] = {0};
+    printf("%s %s %s\n", PairNum, MajColor, MinColor);
     for(i = 0; i < 5; i++) {
         for(j = 0; j < 5; j++) {
             pairIndex = (i * 5 + j);
-            printf("%d | %s | %s\n", pairIndex, majorColor[i], minorColor[i]);
-            evaluationColorMap(pairIndex);
+            sprintf(strpairIndex, "%d", pairIndex);
+            strcat(strpairIndex, " |");
+            strcpy(strMajIndex, majorColor[i]);
+            strcat(strMajIndex, " |");
+            printf("%s %s %s\n", strpairIndex, strMajIndex, minorColor[i]);
+            assert(strlen(strpairIndex)==strlen(PairNum));
+            assert(strlen(strMajIndex)==strlen(MajColor));
         }
     }
     assert(pairIndex == (i*j));
@@ -34,7 +35,7 @@ int printColorMap() {
 
 int main() {
     int result = printColorMap();
-    assert(result == totColors);
+    assert(result == 25);
     printf("All is well (maybe!)\n");
     return 0;
 }
